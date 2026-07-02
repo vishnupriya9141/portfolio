@@ -78,9 +78,9 @@ export default function Resume() {
       <div className="pt-24 md:pt-32 pb-16">
         <div className="max-w-5xl mx-auto px-6 md:px-8">
           <FadeInUp>
-            <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent mb-8 transition-colors">
+            <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent mb-8 transition-colors cursor-pointer">
               <ArrowLeft className="w-4 h-4" />
-              Back to home
+              Back to project
             </Link>
           </FadeInUp>
 

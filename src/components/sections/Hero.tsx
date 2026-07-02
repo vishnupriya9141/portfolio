@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/data/content";
 import { StaggerChildren, StaggerItem, FadeInUp } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Download, ArrowUpRight } from "lucide-react";
-import profileImage from "@/assets/image.png";
+import profileImage from "@/assets/profile/image.png";
 
 export default function Hero() {
   return (
@@ -121,12 +121,12 @@ export default function Hero() {
               className="relative"
             >
               <div className="aspect-square max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-border/50 bg-surface-light">
-  <img
-    src={profileImage}
-    alt={`${SITE_CONFIG.name} profile`}
-    className="w-full h-full object-cover"
-  />
-</div>
+                <img
+                  src={profileImage}
+                  alt={`${SITE_CONFIG.name} profile`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
           </FadeInUp>
         </div>

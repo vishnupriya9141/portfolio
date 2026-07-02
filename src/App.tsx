@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Home from "@/pages/Home";
 import ProjectDetail from "@/pages/ProjectDetail";
@@ -6,9 +6,11 @@ import Resume from "@/pages/Resume";
 import NotFound from "@/pages/NotFound";
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <AnimatePresence mode="wait">
-      <Routes>
+      <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
         <Route path="/resume" element={<Resume />} />

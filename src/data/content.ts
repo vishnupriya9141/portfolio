@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "Vishnu Priya Vattikunta",
   role: "Full Stack Developer",
   location: "Bengaluru, India",
-  email: "vishnuv9141@outlook.com",
+  email: "vattikuntavishnupriya@gmail.com",
   linkedin: "https://linkedin.com/in/vattikuntavishnupriya9141",
   github: "https://github.com/vishnupriya9141",
   currentCompany: "Mu Sigma",
@@ -137,7 +137,7 @@ export const PROJECTS = [
     industry: "Enterprise Logistics",
     role: "Full Stack Developer",
     description:
-      "Centralized enterprise portal for managing National Distribution Center (NDC) operations with secure access, Power BI integration, and real-time operational insights.",
+      "Developed a centralized management cockpit enabling operations leaders to monitor logistics KPIs, warehouse throughput, and distribution network health in real time. Seamlessly integrated embedded Power BI frameworks with secure OIDC single sign-on authentication.",
 
     context:
       "NDC operations required a unified platform to streamline supply chain management, simplify complex operational processes, and provide secure access to analytics. Existing workflows lacked a centralized interface for managing dashboards, monitoring operational data, and enabling efficient decision-making across distribution center initiatives.",
@@ -198,7 +198,7 @@ export const PROJECTS = [
     role: "Full Stack Developer",
 
     description:
-      "Enterprise web platform for monitoring supply chain resiliency by aggregating data from multiple sources, visualizing supply chain risks, and enabling proactive inventory and risk management.",
+      "Built a highly interactive geospatial analytics portal tracking global supply chain stability and supplier risk factors. Leveraged Leaflet.js and D3.js to map real-time location-based disruptions, allowing supply chain managers to perform instant drill-down impact analyses. Implemented custom Multi-Factor Authentication (MFA) via Microsoft Entra ID to ensure absolute data isolation.",
 
     context:
       "The application consolidates data from internal systems, external partners, and market analysis platforms into a unified dashboard. It provides Overview, React, Manage, and Plan views to help stakeholders monitor KPIs, assess supply chain risks, manage inventory visibility, and plan mitigation strategies.",
@@ -260,15 +260,15 @@ export const PROJECTS = [
     duration: "7 months",
     role: "Full Stack Developer",
     description:
-      "End-to-end materials management platform tracking procurement, inventory, and vendor performance across 200+ facilities.",
+      "Enterprise inventory and analytics platform standardizing dashboard development, backend services, and operational reporting across distributed business units.",
     context:
-      "Manual material tracking led to 15% excess inventory and 8% stockouts. The procurement cycle took 3-4 weeks with no visibility into vendor performance or price trends.",
+      "Operational teams relied on fragmented reporting tools, inconsistent UI patterns, and slow backend queries. The platform unified dashboard development, API services, and analytics capabilities into a single standardized system with enterprise-grade security and automation.",
     responsibilities: [
-      "Built React frontend with Ant Design component library",
-      "Developed FastAPI backend with SQLAlchemy ORM",
-      "Implemented Celery workers for async PDF report generation",
-      "Optimized API response times from 2s to 200ms",
-      "Integrated Power BI for executive dashboards",
+      "Built reusable React + Ant Design analytics components to standardize dashboards across enterprise apps.",
+      "Developed interactive filtering and KPI monitoring workflows for real-time operational analytics.",
+      "Built secure FastAPI REST APIs and optimized SQL schemas for automation and reporting pipelines.",
+      "Implemented batch and near-real-time backend pipelines to improve dashboard refresh responsiveness.",
+      "Integrated Microsoft Entra ID authentication, RBAC, and Selenium regression automation to strengthen release confidence.",
     ],
     technologies: [
       "React",
@@ -277,28 +277,28 @@ export const PROJECTS = [
       "FastAPI",
       "Python",
       "SQL",
-      "Redis",
-      "Power BI",
+      "Selenium",
+      "Microsoft Entra ID",
       "Azure",
     ],
     challenges: [
       {
-        challenge: "Complex multi-step procurement workflows",
-        solution: "Built reusable form wizard components with optimistic updates",
+        challenge: "Need to streamline aircraft parts inventory planning, allocation, fulfillment, and delivery tracking across multiple teams",
+        solution: "Built an inventory management portal with role-based views that unify stock, allocation, and delivery workflows in a single interface",
       },
       {
-        challenge: "Real-time inventory across distributed facilities",
-        solution: "Implemented WebSocket-based updates with Redis pub/sub",
+        challenge: "Fragmented data across multiple systems prevented a unified view of inventory, demand, and supply chain performance",
+        solution: "Integrated data from multiple systems to provide a single source of truth with forecasting capabilities for better planning",
       },
       {
-        challenge: "PDF report generation for complex tabular data",
-        solution: "Created Celery task queue with headless PDF export service",
+        challenge: "Users lacked visibility into operations needed to efficiently manage inventory, customer priorities, and order fulfillment",
+        solution: "Designed role-based views and dashboards offering clear operational visibility, helping teams prioritize customer orders and manage fulfillment end-to-end",
       },
     ],
     outcomes: [
-      "Reduced excess inventory by 15%",
-      "Cut procurement cycle from 3-4 weeks to 5 days",
-      "Improved vendor on-time delivery from 78% to 94%",
+      "Unified inventory, demand, and supply chain data into a single portal with integrated forecasting",
+      "Enabled role-based operational dashboards for clearer inventory and customer order visibility",
+      "Streamlined planning, allocation, and fulfillment workflows for aircraft parts inventory management",
     ],
     imageUrl: "/projects/materials360.png",
     architectureDiagram: `
@@ -322,8 +322,8 @@ export const PROJECTS = [
   industry: "Healthcare Analytics",
   duration: "4 months",
   role: "Full Stack Developer",
-  description:
-    "A web-based healthcare analytics platform that enables clinical and sales stakeholders to monitor Healthcare Professional (HCP) performance, benchmark treatment outcomes, and drive data-driven decision-making through interactive dashboards.",
+    description:
+      "Consolidated disparate clinical, operational, and medical sales datasets into a centralized performance engine for Healthcare Professionals (HCPs). Built highly responsive KPI grids utilizing modular visualization charts to expose regional treatment trends and commercial optimization opportunities.",
 
   context:
     "The Spark Aligners Performance Dashboard consolidates clinical, operational, and performance data from centralized reporting views into a unified analytics platform. It provides role-based access for internal stakeholders and doctors to monitor KPIs, benchmark performance, analyze treatment trends, and identify opportunities to improve clinical outcomes and operational efficiency.",

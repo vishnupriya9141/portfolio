@@ -92,7 +92,7 @@ export default function Contact() {
           </FadeInUp>
         </div>
 
-        <FadeInUp delay={0.4} className="mt-12">
+        {/* <FadeInUp delay={0.4} className="mt-12">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-accent/5 to-accent-secondary/5 border-accent/20 text-center">
             <h3 className="text-2xl font-semibold mb-4">Open to opportunities</h3>
             <p className="text-text-secondary max-w-xl mx-auto mb-8 leading-relaxed">
@@ -113,7 +113,7 @@ export default function Contact() {
               </Button>
             </div>
           </Card>
-        </FadeInUp>
+        </FadeInUp> */}
       </div>
     </section>
   );
