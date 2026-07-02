@@ -41,6 +41,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
       setResolvedTheme(effective);
       document.documentElement.setAttribute("data-theme", effective);
+      const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+      if (favicon) {
+        favicon.href = effective === "dark" ? "/favicondark-32x32.png" : "/faviconlight-32x32.png";
+      }
     };
 
     applyTheme();

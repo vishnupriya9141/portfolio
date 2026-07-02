@@ -1,3 +1,8 @@
+import spot1 from "@/assets/awards/spot1.png";
+import spot2 from "@/assets/awards/spot2.png";
+import spot3 from "@/assets/awards/spot3.png";
+import spot4 from "@/assets/awards/spot4.png";
+
 export const SITE_CONFIG = {
   name: "Vishnu Priya Vattikunta",
   role: "Full Stack Developer",
@@ -383,7 +388,7 @@ export const AWARDS = [
     description:
       "Received this award for developing the NDC Cockpit project, where Power BI dashboards were added to a web application. The dashboards can be accessed based on user roles and login permissions.",
     project: "NDC Cockpit",
-    imageUrl: "/awards/spot1.png",
+    imageUrl: spot1,
   },
   {
     id: 2,
@@ -391,7 +396,7 @@ export const AWARDS = [
     date: "November 2024",
     description:
       "This award is given in recognition of consistent dedication and versatile contributions to the project. The work spanned across frontend development, backend development, and design, with support provided wherever required. Strong ownership, adaptability, and hard work played a key role in the successful delivery of the project.",
-    imageUrl: "/awards/spot2.png",
+    imageUrl: spot2,
   },
   {
     id: 3,
@@ -399,7 +404,7 @@ export const AWARDS = [
     date: "August 2025",
     description:
       "This award is given for taking complete ownership of a full-stack development project. It recognizes the ability to collaborate effectively with other contributors, proactively solve problems, pay close attention to details, and deliver quick, reliable solutions that had a strong impact on key deliverables.",
-    imageUrl: "/awards/spot3.png",
+    imageUrl: spot3,
   },
   {
     id: 4,
@@ -407,7 +412,7 @@ export const AWARDS = [
     date: "December 2025",
     description:
       "Given for full ownership and contributions across the entire project lifecycle, from ideation and design to development, resulting in impactful and innovative application.",
-    imageUrl: "/awards/spot4.png",
+    imageUrl: spot4,
   },
 ];
 

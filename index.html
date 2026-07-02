@@ -2,23 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Vishnu Priya Vattikunta - Full Stack Developer specializing in enterprise analytics, supply chain, and cloud-native applications." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/faviconlight-32x32.png" id="favicon" />
+
+    <!-- Theme -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme =
+            saved === "system" || !saved
+              ? window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light"
+              : saved;
+          document.documentElement.setAttribute("data-theme", theme);
+          var favicon = document.getElementById("favicon");
+          if (favicon) {
+            favicon.href = theme === "dark" ? "/favicondark-32x32.png" : "/faviconlight-32x32.png";
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <meta
+      name="description"
+      content="Vishnu Priya Vattikunta - Full Stack Developer specializing in enterprise analytics, supply chain, and cloud-native applications."
+    />
     <meta name="author" content="Vishnu Priya Vattikunta" />
     <link rel="canonical" href="https://vishnupriya9141.github.io" />
-    
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vishnu Priya Vattikunta - Full Stack Developer" />
-    <meta property="og:description" content="Building scalable enterprise software using React, TypeScript, NestJS, FastAPI, and Azure." />
+    <meta
+      property="og:title"
+      content="Vishnu Priya Vattikunta - Full Stack Developer"
+    />
+    <meta
+      property="og:description"
+      content="Building scalable enterprise software using React, TypeScript, NestJS, FastAPI, and Azure."
+    />
     <meta property="og:image" content="/og-image.png" />
     <meta property="og:url" content="https://vishnupriya9141.github.io" />
-    
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vishnu Priya Vattikunta - Full Stack Developer" />
-    <meta name="twitter:description" content="Building scalable enterprise software using React, TypeScript, NestJS, FastAPI, and Azure." />
+    <meta
+      name="twitter:title"
+      content="Vishnu Priya Vattikunta - Full Stack Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Building scalable enterprise software using React, TypeScript, NestJS, FastAPI, and Azure."
+    />
     <meta name="twitter:image" content="/og-image.png" />
-    
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -32,25 +73,18 @@
         ]
       }
     </script>
-    
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    
-    <script>
-      (function() {
-        try {
-          var saved = localStorage.getItem('theme');
-          var theme = (saved === 'system' || !saved)
-            ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-            : saved;
-          document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-      })();
-    </script>
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Vishnu Priya Vattikunta | Full Stack Developer</title>
   </head>
+
   <body class="bg-background text-text-primary antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
