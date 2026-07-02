@@ -40,6 +40,9 @@
   html {
     scroll-behavior: smooth;
   }
+  a, button {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {

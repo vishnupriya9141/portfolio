@@ -1,5 +1,5 @@
-"use client";
 
+import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/data/content";
 import { FadeInUp } from "@/lib/animations";
 import { Card } from "@/components/ui/card";
@@ -54,18 +54,24 @@ export default function About() {
           </div>
         </FadeInUp>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {CARDS.map((card, index) => (
             <FadeInUp key={card.title} delay={0.1 + index * 0.1}>
-              <Card className="p-6 h-full hover:border-accent/30 transition-colors group">
-                <div className="text-accent mb-4">
-                  <card.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {card.description}
-                </p>
-              </Card>
+              <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }} className="h-full">
+                <Card className="p-6 h-full hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 group">
+                  <motion.div
+                    className="text-accent mb-4 inline-block"
+                    whileHover={{ rotate: -8, scale: 1.15 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <card.icon className="w-6 h-6" />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    {card.description}
+                  </p>
+                </Card>
+              </motion.div>
             </FadeInUp>
           ))}
         </div>
@@ -78,13 +84,18 @@ export default function About() {
                 Building enterprise-grade applications at Mu Sigma with a focus on scalable, high-performance solutions that drive business value. Experienced in full-stack development across analytics, supply chain, healthcare, inventory, and cloud platforms. Currently pursuing an M.Tech in Cloud Computing from BITS Pilani.
               </p>
               <div className="flex flex-wrap gap-2">
-                {SITE_CONFIG.domains.map((domain) => (
-                  <span
+                {SITE_CONFIG.domains.map((domain, i) => (
+                  <motion.span
                     key={domain}
-                    className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
+                    whileHover={{ scale: 1.08, backgroundColor: "rgba(99,102,241,0.15)" }}
+                    className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 cursor-default"
                   >
                     {domain}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -94,4 +105,3 @@ export default function About() {
     </section>
   );
 }
-

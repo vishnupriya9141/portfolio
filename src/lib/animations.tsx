@@ -1,6 +1,6 @@
-"use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 export function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
@@ -120,3 +120,109 @@ export function ScaleIn({ children, className, delay = 0 }: { children: React.Re
   );
 }
 
+// Magnetic hover: element follows cursor with spring physics
+export function MagneticHover({
+  children,
+  className,
+  strength = 0.3,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  strength?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 200, damping: 20 });
+  const springY = useSpring(y, { stiffness: 200, damping: 20 });
+
+  const handleMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      x.set((e.clientX - cx) * strength);
+      y.set((e.clientY - cy) * strength);
+    },
+    [x, y, strength]
+  );
+
+  const handleLeave = useCallback(() => {
+    x.set(0);
+    y.set(0);
+  }, [x, y]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ x: springX, y: springY }}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Text scramble: cycles through random chars before settling on final text
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+export function ScrambleText({
+  text,
+  className,
+  trigger = true,
+}: {
+  text: string;
+  className?: string;
+  trigger?: boolean;
+}) {
+  const [display, setDisplay] = useState(text);
+
+  useEffect(() => {
+    if (!trigger) return;
+    let frame = 0;
+    const totalFrames = 20;
+    const interval = setInterval(() => {
+      frame++;
+      setDisplay(
+        text
+          .split("")
+          .map((char, i) => {
+            if (char === " ") return " ";
+            if (frame / totalFrames > i / text.length) return char;
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          })
+          .join("")
+      );
+      if (frame >= totalFrames) clearInterval(interval);
+    }, 40);
+    return () => clearInterval(interval);
+  }, [text, trigger]);
+
+  return <span className={className}>{display}</span>;
+}
+
+// Pulse glow: subtle pulsing glow behind element
+export function PulseGlow({
+  children,
+  className,
+  color = "#6366F1",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  color?: string;
+}) {
+  return (
+    <div className={`relative ${className ?? ""}`}>
+      <motion.div
+        animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.05, 1] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 blur-xl -z-10"
+        style={{ background: color, opacity: 0.3, borderRadius: "inherit" }}
+      />
+      {children}
+    </div>
+  );
+}

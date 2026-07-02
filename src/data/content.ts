@@ -29,6 +29,7 @@ export const NAVIGATION = [
   { name: "Projects", href: "#projects" },
   { name: "Awards", href: "#awards" },
   { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -41,10 +42,14 @@ export const EXPERIENCE = [
         title: "Decision Scientist III",
         period: "Jan 2026 - Present · 6 mos",
         responsibilities: [
-          "Frontend Engineering & UI Development: Implemented internationalization (i18n) with support for 20+ languages, including RTL layouts, enabling a scalable multilingual user experience. Built reusable UI modules, shared components, and utility libraries to accelerate feature delivery and ensure consistency across applications.",
-          "Data & Backend Integration: Developed and optimized complex Snowflake SQL queries, views, and data transformation logic to support analytics workflows and business reporting. Integrated NestJS services with Snowflake-backed data sources, enabling efficient retrieval and processing of enterprise data. Built Python-based automation utilities to streamline data validation, reporting, and operational workflows.",
-          "Engineering Quality & Delivery: Managed source control and collaborative development using Bitbucket, following structured branching strategies and peer review practices. Supported CI/CD pipelines using Atlassian Bamboo, improving build automation and ensuring reliable application deployments.",
-          "Team & Product Impact: Collaborated with cross-functional teams to translate business requirements into scalable technical solutions while maintaining high engineering standards. Contributed to technical documentation, code quality initiatives, and knowledge-sharing activities to support long-term platform maintainability.",
+          "Implemented i18n with support for 20+ languages including RTL layouts for multilingual enterprise UX",
+          "Built reusable UI modules, shared components, and utility libraries to accelerate feature delivery",
+          "Developed and optimized complex Snowflake SQL queries, views, and data transformation logic",
+          "Integrated NestJS services with Snowflake data sources for efficient enterprise data retrieval",
+          "Built Python automation utilities for data validation, reporting, and operational workflows",
+          "Managed source control on Bitbucket with structured branching strategies and peer reviews",
+          "Supported CI/CD pipelines via Atlassian Bamboo to improve build automation and release reliability",
+          "Collaborated with cross-functional teams to translate business requirements into scalable solutions",
         ],
         technologies: [
           "React.js",
@@ -64,11 +69,14 @@ export const EXPERIENCE = [
         title: "Decision Scientist II",
         period: "Jan 2025 - Dec 2025 · 1 yr",
         responsibilities: [
-          "Frontend Engineering & UI Platforms: Built reusable analytics UI components using React.js, TypeScript, and Ant Design to standardize dashboard development across enterprise applications. Developed interactive filtering workflows and KPI monitoring interfaces for real-time operational analytics exploration. Improved UI consistency and development velocity through shared component-driven architecture.",
-          "Backend APIs & Application Services: Developed secure FastAPI-based REST APIs supporting automation workflows and reporting pipelines. Designed optimized SQL schemas aligned with dashboard filtering, reporting, and KPI monitoring requirements.",
-          "Data Integration & Analytics Enablement: Built backend pipelines supporting batch analytics processing and near-real-time dashboard refresh workflows. Improved query responsiveness supporting large-scale analytics dashboard usage.",
-          "Enterprise Security & Engineering Practices: Implemented Microsoft Entra ID (Azure AD) authentication and RBAC for secure role-based application access. Developed Selenium-based regression automation suites improving UI stability and release confidence. Contributed to shared internal libraries and participated in structured peer code reviews.",
-          "Team Impact: Delivered features across multiple parallel analytics platform initiatives under tight timelines. Mentored junior developers and supported onboarding across project teams.",
+          "Built reusable analytics UI components with React.js, TypeScript, and Ant Design to standardize dashboard development",
+          "Developed interactive filtering workflows and KPI monitoring interfaces for real-time analytics",
+          "Developed secure FastAPI REST APIs supporting automation workflows and reporting pipelines",
+          "Designed optimized SQL schemas for dashboard filtering, reporting, and KPI monitoring",
+          "Built backend pipelines for batch analytics processing and near-real-time dashboard refresh",
+          "Implemented Microsoft Entra ID (Azure AD) authentication and RBAC for role-based access control",
+          "Developed Selenium regression automation suites to improve UI stability and release confidence",
+          "Mentored junior developers and supported onboarding across project teams",
         ],
         technologies: [
           "React.js",
@@ -94,11 +102,16 @@ export const EXPERIENCE = [
         title: "Decision Scientist I",
         period: "Jul 2023 - Dec 2024 · 1 yr 6 mos",
         responsibilities: [
-          "Frontend Engineering & Advanced Visualization: Built analytics web applications using React.js and Ant Design, delivering reusable dashboard components including tables, filters, and modal workflows. Developed advanced visual analytics dashboards using D3.js, HighCharts, and Chart.js for KPI tracking and operational insights. Created 3D simulations using Three.js and p5.js to model supply-chain and vehicle movement scenarios. Implemented geospatial analytics interfaces using Leaflet.js for warehouse and fleet tracking with clustering and filtering.",
-          "Backend Services & API Development: Developed modular backend services using Node.js and NestJS supporting scalable analytics workflows. Optimized backend queries improving dashboard rendering responsiveness.",
-          "Data Engineering & Analytics Platforms: Built analytics pipelines using PySpark and Azure Databricks supporting batch and near-real-time processing. Embedded secure Power BI reports within enterprise applications using role-based access control.",
-          "DevOps, Security & Delivery Engineering: Automated deployments using Azure DevOps CI/CD pipelines improving release reliability. Performed security validation using Checkmarx to support secure enterprise delivery.",
-          "Product & Solution Contribution: Designed workflows and application screens in Figma, aligning UX feasibility with engineering implementation. Contributed technical inputs during analytics platform solution design discussions.",
+          "Built analytics web apps with React.js and Ant Design — reusable tables, filters, and modal workflows",
+          "Developed advanced dashboards using D3.js, HighCharts, and Chart.js for KPI tracking and operational insights",
+          "Created 3D simulations with Three.js and p5.js to model supply-chain and vehicle movement scenarios",
+          "Implemented geospatial analytics with Leaflet.js for warehouse and fleet tracking with clustering",
+          "Built modular backend services using Node.js and NestJS for scalable analytics workflows",
+          "Built analytics pipelines with PySpark and Azure Databricks for batch and near-real-time processing",
+          "Embedded Power BI reports within enterprise apps using role-based access control",
+          "Automated deployments via Azure DevOps CI/CD pipelines to improve release reliability",
+          "Performed security validation using Checkmarx for secure enterprise delivery",
+          "Designed application screens and workflows in Figma aligned with engineering feasibility",
         ],
         technologies: [
           "React.js",
@@ -413,7 +426,7 @@ export const AWARDS = [
     description:
       "Given for full ownership and contributions across the entire project lifecycle, from ideation and design to development, resulting in impactful and innovative application.",
     imageUrl: spot4,
-  },
+  } 
 ];
 
 export const SKILLS = {
@@ -446,8 +459,12 @@ export const SKILLS = {
     icon: "Database",
     technologies: [
       "SQL",
+      "Snowflake",
       "PySpark",
       "Azure Databricks",
+      "Power BI",
+      "Grafana",
+      "D3.js",
     ],
   },
   visualization: {
@@ -494,7 +511,7 @@ export const EDUCATION = [
     institution: "BITS Pilani",
     degree: "M.Tech",
     field: "Cloud Computing",
-    period: "2023 - 2025",
+    period: "2023 – Present",
     status: "Pursuing",
   },
   {
@@ -527,6 +544,6 @@ export const CERTIFICATIONS = [
 export const STATS = [
   { label: "Corporate Spot Awards", value: "4", icon: "Trophy" },
   { label: "Engineers Mentored", value: "20+", icon: "Users" },
-  { label: "Enterprise Apps Delivered", value: "Multiple", icon: "Rocket" },
-  { label: "Domains", value: "Multi", icon: "Globe" },
+  { label: "Enterprise Apps Delivered", value: "4+", icon: "Rocket" },
+  { label: "Industry Domains", value: "4", icon: "Globe" },
 ];

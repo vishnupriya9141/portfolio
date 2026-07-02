@@ -23,9 +23,9 @@ export default function NotFound() {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/projects">
+                <Link to="/" replace>
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  View Projects
+                  View Portfolio
                 </Link>
               </Button>
             </div>

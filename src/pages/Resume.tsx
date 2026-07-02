@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SITE_CONFIG } from "@/data/content";
 import { FadeInUp } from "@/lib/animations";
 import { Card } from "@/components/ui/card";
@@ -10,6 +10,7 @@ function PdfBlobViewer({ url }: { url: string }) {
   const [objectUrl, setObjectUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const objectUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -20,6 +21,7 @@ function PdfBlobViewer({ url }: { url: string }) {
         const blob = await response.blob();
         if (!cancelled && blob) {
           const blobUrl = URL.createObjectURL(blob);
+          objectUrlRef.current = blobUrl;
           setObjectUrl(blobUrl);
         }
       } catch (err) {
@@ -37,8 +39,9 @@ function PdfBlobViewer({ url }: { url: string }) {
 
     return () => {
       cancelled = true;
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
       }
     };
   }, [url]);
@@ -80,7 +83,7 @@ export default function Resume() {
           <FadeInUp>
             <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent mb-8 transition-colors cursor-pointer">
               <ArrowLeft className="w-4 h-4" />
-              Back to project
+              Back to home
             </Link>
           </FadeInUp>
 
