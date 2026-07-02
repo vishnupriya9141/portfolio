@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
     "Healthcare Systems",
     "Aviation",
   ],
-  resumeUrl: "/resume/vishnu-priya-resume.pdf",
+  resumeUrl: "/Vishnu_Priya_Vattikunta_Resume_0726.pdf",
 };
 
 export const NAVIGATION = [
