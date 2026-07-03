@@ -19,8 +19,8 @@ function useResponsiveColumns(lg: number, md?: number, sm = 1) {
 
       if (w >= 1024) setCols(lg);
       else if (w >= 768) setCols(md ?? lg);
-      else if (w >= 640) setCols(sm > 1 ? sm : Math.min(2, lg));
-      else setCols(sm);
+      else if (w >= 640) setCols(sm);
+      else setCols(Math.min(sm, md ?? lg));
     }
 
     update();
@@ -39,31 +39,23 @@ export default function Carousel({
   mdColumns,
 }: CarouselProps) {
   const [index, setIndex] = useState(0);
-
-  // Measure THIS instead of the outer wrapper
   const viewportRef = useRef<HTMLDivElement>(null);
+  const pointerStart = useRef<{ x: number; y: number } | null>(null);
+  const captureSet = useRef(false);
 
   const [cardWidth, setCardWidth] = useState(0);
-
   const activeCols = useResponsiveColumns(columns, mdColumns, smColumns);
 
   const measure = useCallback(() => {
     if (!viewportRef.current) return;
-
     const width = viewportRef.current.clientWidth;
-
     setCardWidth((width - gap * (activeCols - 1)) / activeCols);
   }, [activeCols, gap]);
 
   useEffect(() => {
     measure();
-
     const ro = new ResizeObserver(measure);
-
-    if (viewportRef.current) {
-      ro.observe(viewportRef.current);
-    }
-
+    if (viewportRef.current) ro.observe(viewportRef.current);
     return () => ro.disconnect();
   }, [measure]);
 
@@ -73,13 +65,49 @@ export default function Carousel({
 
   const needsScroll = items.length > activeCols;
   const maxIndex = Math.max(0, items.length - activeCols);
-
   const clamp = (v: number) => Math.max(0, Math.min(v, maxIndex));
 
   const prev = () => setIndex((i) => clamp(i - 1));
   const next = () => setIndex((i) => clamp(i + 1));
-
   const offset = index * (cardWidth + gap);
+
+  const isInteractiveTarget = (target: EventTarget | null) => {
+    if (!target || !(target instanceof HTMLElement)) return false;
+    return target.closest("button, a, [role=\"button\"], input, select, textarea");
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (e.button !== 0) return;
+    if (isInteractiveTarget(e.target)) return;
+    pointerStart.current = { x: e.clientX, y: e.clientY };
+    try {
+      viewportRef.current?.setPointerCapture(e.pointerId);
+      captureSet.current = true;
+    } catch {
+      captureSet.current = false;
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!pointerStart.current || !needsScroll) return;
+    const dx = e.clientX - pointerStart.current.x;
+    const dy = e.clientY - pointerStart.current.y;
+    pointerStart.current = null;
+
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > cardWidth * 0.2) {
+      if (dx > 0) prev();
+      else next();
+    }
+    if (captureSet.current) {
+      viewportRef.current?.releasePointerCapture(e.pointerId);
+      captureSet.current = false;
+    }
+  };
+
+  const handleLostPointerCapture = () => {
+    pointerStart.current = null;
+    captureSet.current = false;
+  };
 
   return (
     <div className="relative">
@@ -93,7 +121,7 @@ export default function Carousel({
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 4 }}
                 onClick={prev}
-                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background border border-border shadow-md flex items-center justify-center hover:text-accent"
+                className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-8 md:h-8 rounded-full bg-background border border-border shadow-md flex items-center justify-center hover:text-accent"
               >
                 <ChevronLeft className="w-4 h-4" />
               </motion.button>
@@ -108,7 +136,7 @@ export default function Carousel({
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -4 }}
                 onClick={next}
-                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background border border-border shadow-md flex items-center justify-center hover:text-accent"
+                className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-8 md:h-8 rounded-full bg-background border border-border shadow-md flex items-center justify-center hover:text-accent"
               >
                 <ChevronRight className="w-4 h-4" />
               </motion.button>
@@ -117,8 +145,11 @@ export default function Carousel({
         </>
       )}
 
-      {/* viewport */}
-      <div ref={viewportRef} className="overflow-hidden">
+      <div
+        ref={viewportRef}
+        className="overflow-hidden"
+        style={{ touchAction: "pan-y" }}
+      >
         <motion.div
           animate={{ x: -offset }}
           transition={{
@@ -128,6 +159,9 @@ export default function Carousel({
           }}
           className="flex"
           style={{ gap }}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onLostPointerCapture={handleLostPointerCapture}
         >
           {items.map((item, i) => (
             <div

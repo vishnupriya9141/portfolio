@@ -95,7 +95,7 @@ export default function Resume() {
                 </h1>
               </div>
 
-              <div className="bg-black/5">
+              <div className="bg-surface-light/50 dark:bg-white/5">
                 <PdfBlobViewer url={SITE_CONFIG.resumeUrl} />
               </div>
 

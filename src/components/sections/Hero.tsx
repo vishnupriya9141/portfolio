@@ -130,12 +130,12 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [-8, 8, -8], x: [0, 4, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-accent/20 blur-xl"
+                className="absolute -top-2 -right-2 md:-top-4 md:-right-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-accent/20 blur-xl"
               />
               <motion.div
                 animate={{ y: [8, -8, 8], x: [0, -4, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-accent-secondary/20 blur-xl"
+                className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-16 h-16 md:w-20 md:h-20 rounded-full bg-accent-secondary/20 blur-xl"
               />
               <div className="relative aspect-square max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-border/50 bg-surface-light">
                 <img

@@ -15,12 +15,13 @@ export default function Home() {
     const scrollToProjects = sessionStorage.getItem("scrollToProjects");
     if (scrollToProjects) {
       sessionStorage.removeItem("scrollToProjects");
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         const element = document.querySelector("#projects");
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 500);
+      return () => clearTimeout(timer);
     }
   }, []);
 

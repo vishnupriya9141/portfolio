@@ -10,13 +10,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
-  const { toggleTheme, resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const mobileMenuId = "mobile-menu";
 
   const scrollToSection = (href: string) => {
     setIsOpen(false);
@@ -26,6 +20,13 @@ export default function Navbar() {
     const element = document.querySelector(href);
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
+  const { toggleTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.nav
@@ -122,6 +123,8 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
               className="p-2 text-text-secondary hover:text-text-primary cursor-pointer"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls={mobileMenuId}
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
@@ -143,6 +146,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id={mobileMenuId}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
