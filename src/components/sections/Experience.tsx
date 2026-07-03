@@ -58,7 +58,7 @@ export default function Experience() {
   );
 }
 
-const VISIBLE_COUNT = 5;
+const VISIBLE_COUNT = 3;
 
 function RoleCard({ role, company, roleIndex }: { role: typeof EXPERIENCE[0]["roles"][0]; company: string; roleIndex: number }) {
   const [expanded, setExpanded] = useState(false);

@@ -12,7 +12,6 @@ function CertCard({ cert }: { cert: typeof CERTIFICATIONS[0] }) {
       href={cert.credentialUrl}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ y: -4, scale: 1.02 }}
       className="block cursor-pointer h-full"
     >
       <div className="relative rounded-xl border border-border bg-surface p-5 h-full hover:border-accent/40 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 group overflow-hidden">
@@ -74,7 +73,6 @@ export default function Education() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 + i * 0.1, duration: 0.4 }}
-                whileHover={{ y: -3 }}
               >
                 <Card className="p-6 h-full hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 border-l-4 border-l-accent">
                   <div className="flex items-start justify-between mb-3">

@@ -100,8 +100,8 @@ export default function Awards() {
               const Icon = iconMap[stat.icon] || Trophy;
               return (
                 <StaggerItem key={stat.label}>
-                  <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-                    <Card className="p-6 text-center hover:border-accent/30 transition-colors">
+                  <motion.div transition={{ duration: 0.2 }}>
+                     <Card className="p-6 text-center hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300">
                       <motion.div
                         animate={{ rotate: [0, -8, 8, 0] }}
                         transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
@@ -222,13 +222,12 @@ export default function Awards() {
 function AwardCard({ award, onClick }: { award: typeof AWARDS[0]; onClick: () => void }) {
   return (
     <motion.div
-      whileHover={{ y: -5, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
       onClick={onClick}
       className="cursor-pointer h-full"
     >
-      <Card className="p-4 hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 group h-full flex flex-col">
+      <Card className="p-4 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group h-full flex flex-col">
         <div className="aspect-square rounded-lg bg-surface-light border border-border overflow-hidden mb-3 flex items-center justify-center">
           <img
             src={award.imageUrl}
