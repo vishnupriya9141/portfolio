@@ -155,7 +155,7 @@ export default function Contact() {
                 <div className="flex-grow">
                   <h3 className="text-lg font-semibold mb-1">Open to Opportunities</h3>
                   <p className="text-sm text-text-secondary">
-                    Actively exploring full-stack, data engineering, and decision science roles.
+                    Actively seeking full-stack, frontend engineering, and web development opportunities.
                   </p>
                 </div>
                 <Button size="sm" className="shrink-0" asChild>
