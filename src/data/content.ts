@@ -2,6 +2,7 @@ import spot1 from "@/assets/awards/spot1.png";
 import spot2 from "@/assets/awards/spot2.png";
 import spot3 from "@/assets/awards/spot3.png";
 import spot4 from "@/assets/awards/spot4.png";
+import resumePdf from "@/assets/pdfs/Vishnu_Priya_Vattikunta_Resume_0726.pdf";
 
 // Global site metadata used across Navbar, Footer, SEO meta tags, and Hero
 export const SITE_CONFIG = {
@@ -20,7 +21,8 @@ export const SITE_CONFIG = {
     "Healthcare Systems",
     "Aviation",
   ],
-  resumeUrl: "/Vishnu_Priya_Vattikunta_Resume_0726.pdf",
+  resumeUrl: resumePdf,
+  resumeFileName: "Vishnu_Priya_Vattikunta_Resume_0726.pdf",
 };
 
 // Navbar and footer link ordering
@@ -57,7 +59,6 @@ export const EXPERIENCE = [
         technologies: [
           "React.js",
           "NestJS",
-          "Python",
           "Tailwind CSS",
           "Bitbucket",
           "Atlassian Bamboo",

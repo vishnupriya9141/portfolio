@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/data/content";
 import { FadeInUp } from "@/lib/animations";
@@ -45,8 +45,14 @@ export default function Contact() {
     await navigator.clipboard.writeText(SITE_CONFIG.email);
     setCopied(true);
     toast({ title: "Email copied", description: `${SITE_CONFIG.email} copied to clipboard` });
-    setTimeout(() => setCopied(false), 2000);
   };
+
+  // Reset copied state after 2 seconds
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
 
   return (
     <section id="contact" className="py-24 md:py-32">

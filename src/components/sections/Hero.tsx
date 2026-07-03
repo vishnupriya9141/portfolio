@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/data/content";
 import { StaggerChildren, StaggerItem, FadeInUp, MagneticHover } from "@/lib/animations";
@@ -6,11 +7,13 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Download, ArrowUpRight } from "lucide-react";
 import profileImage from "@/assets/profile/image.png";
 import HeroBackground from "@/components/sections/HeroBackground";
+import { cn } from "@/lib/utils";
 
 export default function Hero() {
   const parts = SITE_CONFIG.name.split(" ");
   const lastName = parts.pop() ?? "";
   const firstName = parts.join(" ");
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -61,7 +64,7 @@ export default function Hero() {
                 <div className="flex flex-wrap gap-4">
                   <MagneticHover strength={0.25}>
                     <Button size="lg" asChild>
-                      <a href={SITE_CONFIG.resumeUrl} download>
+                      <a href={SITE_CONFIG.resumeUrl} download={SITE_CONFIG.resumeFileName}>
                         <Download className="mr-2 h-4 w-4" />
                         Download Resume
                       </a>
@@ -141,7 +144,11 @@ export default function Hero() {
                 <img
                   src={profileImage}
                   alt={`${SITE_CONFIG.name} profile`}
-                  className="w-full h-full object-cover"
+                  onLoad={() => setImageLoaded(true)}
+                  className={cn(
+                    "w-full h-full object-cover transition-opacity duration-700",
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  )}
                 />
                 {/* Shimmer sweep */}
                 <motion.div

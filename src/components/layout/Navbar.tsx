@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState("");
   const mobileMenuId = "mobile-menu";
 
   const scrollToSection = (href: string) => {
@@ -21,6 +22,32 @@ export default function Navbar() {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
   const { toggleTheme, resolvedTheme } = useTheme();
+
+  // Highlight the nav link that matches the section currently in the viewport
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        setActiveSection(visible.length > 0 ? visible[0].target.id : "");
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  // Close mobile menu automatically when the user scrolls
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleScroll = () => setIsOpen(false);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -53,29 +80,37 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            {NAVIGATION.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                onMouseEnter={() => setHovered(item.name)}
-                onMouseLeave={() => setHovered(null)}
-                className="relative text-sm text-text-secondary hover:text-text-primary transition-colors cursor-pointer py-1"
-              >
-                {item.name}
-                <AnimatePresence>
-                  {hovered === item.name && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      animate={{ opacity: 1, scaleX: 1 }}
-                      exit={{ opacity: 0, scaleX: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute bottom-0 left-0 right-0 h-px bg-accent origin-left"
-                    />
+            {NAVIGATION.map((item) => {
+              const isActive = activeSection === item.href.replace("#", "");
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  onMouseEnter={() => setHovered(item.name)}
+                  onMouseLeave={() => setHovered(null)}
+                  className={cn(
+                    "relative text-sm transition-colors cursor-pointer py-1",
+                    isActive
+                      ? "text-text-primary"
+                      : "text-text-secondary hover:text-text-primary"
                   )}
-                </AnimatePresence>
-              </button>
-            ))}
+                >
+                  {item.name}
+                  <AnimatePresence>
+                    {(hovered === item.name || isActive) && (
+                      <motion.span
+                        key={item.name}
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
+                        exit={{ opacity: 0, scaleX: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute bottom-0 left-0 right-0 h-px bg-accent origin-left"
+                      />
+                    )}
+                  </AnimatePresence>
+                </button>
+              );
+            })}
           </div>
 
           <div className="hidden md:flex items-center gap-4">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/data/content";
 import { FadeInUp } from "@/lib/animations";
 import { Card } from "@/components/ui/card";
@@ -48,8 +49,12 @@ function PdfBlobViewer({ url }: { url: string }) {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-20 text-text-secondary">
-        Loading resume...
+      <div className="flex items-center justify-center py-20">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full"
+        />
       </div>
     );
   }
@@ -101,7 +106,7 @@ export default function Resume() {
 
               <div className="p-6 flex justify-center">
                 <Button size="lg" asChild>
-                  <a href={SITE_CONFIG.resumeUrl} download>
+                  <a href={SITE_CONFIG.resumeUrl} download={SITE_CONFIG.resumeFileName}>
                     <Download className="mr-2 h-4 w-4" />
                     Download PDF Resume
                   </a>
