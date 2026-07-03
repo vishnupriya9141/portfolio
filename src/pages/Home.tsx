@@ -12,20 +12,20 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
+import { useLocation } from "react-router-dom";
+
 export default function Home() {
+  const location = useLocation();
+
   useEffect(() => {
-    const scrollToProjects = sessionStorage.getItem("scrollToProjects");
-    if (scrollToProjects) {
-      sessionStorage.removeItem("scrollToProjects");
-      const timer = setTimeout(() => {
-        const element = document.querySelector("#projects");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 500);
-      return () => clearTimeout(timer);
+    if (location.state?.scrollToProjects) {
+      const element = document.querySelector("#projects");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      window.history.replaceState({}, document.title);
     }
-  }, []);
+  }, [location.state]);
 
   return (
     <main className="min-h-screen">

@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
   github: "https://github.com/vishnupriya9141",
   currentCompany: "Mu Sigma",
   tagline:
-    "Building scalable enterprise software using React, TypeScript, NestJS, FastAPI, and Azure.",
+    "Building scalable enterprise software that drives business outcomes.",
   domains: [
     "Enterprise Analytics",
     "Supply Chain Platforms",
@@ -56,17 +56,6 @@ export const EXPERIENCE = [
           "Supported CI/CD pipelines via Atlassian Bamboo to improve build automation and release reliability",
           "Collaborated with cross-functional teams to translate business requirements into scalable solutions",
         ],
-        technologies: [
-          "React.js",
-          "NestJS",
-          "Tailwind CSS",
-          "Bitbucket",
-          "Atlassian Bamboo",
-          "TypeScript",
-          "Snowflake SQL",
-          "i18n",
-          "RTL",
-        ],
         impact: "Enabled scalable multilingual enterprise applications and strengthened engineering quality practices",
       },
       {
@@ -81,24 +70,6 @@ export const EXPERIENCE = [
           "Implemented Microsoft Entra ID (Azure AD) authentication and RBAC for role-based access control",
           "Developed Selenium regression automation suites to improve UI stability and release confidence",
           "Mentored junior developers and supported onboarding across project teams",
-        ],
-        technologies: [
-          "React.js",
-          "TypeScript",
-          "Python",
-          "SQL",
-          "FastAPI",
-          "Azure DevOps",
-          "SonarQube",
-          "GitHub",
-          "GitLab",
-          "Selenium",
-          "Ant Design",
-          "Vite",
-          "Figma",
-          "Grafana",
-          "Microsoft Entra ID",
-          "RBAC",
         ],
         impact: "Standardized enterprise analytics UI components and strengthened security practices across multiple platform initiatives",
       },
@@ -117,29 +88,6 @@ export const EXPERIENCE = [
           "Performed security validation using Checkmarx for secure enterprise delivery",
           "Designed application screens and workflows in Figma aligned with engineering feasibility",
         ],
-        technologies: [
-          "React.js",
-          "JavaScript",
-          "TypeScript",
-          "Python",
-          "SQL",
-          "Node.js",
-          "NestJS",
-          "PySpark",
-          "Azure Databricks",
-          "Azure DevOps",
-          "SonarQube",
-          "GitLab",
-          "Power BI",
-          "Ant Design",
-          "Three.js",
-          "p5.js",
-          "Figma",
-          "Leaflet.js",
-          "HighCharts",
-          "Chart.js",
-          "Checkmarx",
-        ],
         impact: "Delivered comprehensive analytics and visualization solutions across logistics, supply chain, and geospatial domains",
       },
     ],
@@ -153,7 +101,7 @@ export const PROJECTS = [
     slug: "ndc-cockpit",
     title: "NDC Cockpit",
     industry: "Enterprise Logistics",
-    role: "Full Stack Developer",
+    role: "Decision Scientist I",
     description:
       "Developed a centralized management cockpit enabling operations leaders to monitor logistics KPIs, warehouse throughput, and distribution network health in real time. Seamlessly integrated embedded Power BI frameworks with secure OIDC single sign-on authentication.",
 
@@ -213,7 +161,7 @@ export const PROJECTS = [
     slug: "supply-chain-resiliency",
     title: "Supply Chain Resiliency Mapping",
     industry: "Supply Chain Management",
-    role: "Full Stack Developer",
+    role: "Decision Scientist I",
 
     description:
       "Built a highly interactive geospatial analytics portal tracking global supply chain stability and supplier risk factors. Leveraged Leaflet.js and D3.js to map real-time location-based disruptions, allowing supply chain managers to perform instant drill-down impact analyses. Implemented custom Multi-Factor Authentication (MFA) via Microsoft Entra ID to ensure absolute data isolation.",
@@ -276,7 +224,7 @@ export const PROJECTS = [
     title: "Materials360",
     industry: "Enterprise Resource Planning",
     duration: "7 months",
-    role: "Full Stack Developer",
+    role: "Decision Scientist II",
     description:
       "Enterprise inventory and analytics platform standardizing dashboard development, backend services, and operational reporting across distributed business units.",
     context:
@@ -318,84 +266,70 @@ export const PROJECTS = [
       "Enabled role-based operational dashboards for clearer inventory and customer order visibility",
       "Streamlined planning, allocation, and fulfillment workflows for aircraft parts inventory management",
     ],
-    imageUrl: "/projects/materials360.png",
-    architectureDiagram: `
-      graph LR
-        A[Users] --> B[React Dashboard]
-        B --> C[API Gateway]
-        C --> D[Procurement Service]
-        C --> E[Inventory Service]
-        C --> F[Reporting Service]
-        D --> G[(Azure SQL)]
-        E --> G
-        F --> H[Celery Workers]
-        H --> I[PDF Reports]
-        E --> J[Redis Cache]
-    `,
   },
   {
-  id: 4,
-  slug: "spark-aligners-dashboard",
-  title: "Spark Aligners Performance Dashboard",
-  industry: "Healthcare Analytics",
-  duration: "4 months",
-  role: "Full Stack Developer",
+    id: 4,
+    slug: "spark-aligners-dashboard",
+    title: "Spark Aligners Performance Dashboard",
+    industry: "Healthcare Analytics",
+    duration: "4 months",
+    role: "Decision Scientist III",
     description:
       "Consolidated disparate clinical, operational, and medical sales datasets into a centralized performance engine for Healthcare Professionals (HCPs). Built highly responsive KPI grids utilizing modular visualization charts to expose regional treatment trends and commercial optimization opportunities.",
 
-  context:
-    "The Spark Aligners Performance Dashboard consolidates clinical, operational, and performance data from centralized reporting views into a unified analytics platform. It provides role-based access for internal stakeholders and doctors to monitor KPIs, benchmark performance, analyze treatment trends, and identify opportunities to improve clinical outcomes and operational efficiency.",
+    context:
+      "The Spark Aligners Performance Dashboard consolidates clinical, operational, and performance data from centralized reporting views into a unified analytics platform. It provides role-based access for internal stakeholders and doctors to monitor KPIs, benchmark performance, analyze treatment trends, and identify opportunities to improve clinical outcomes and operational efficiency.",
 
-  responsibilities: [
-    "Developed interactive React dashboards for Doctor View, Target Audience View, and Timeframe View.",
-    "Built NestJS APIs to retrieve, process, and serve performance metrics from Snowflake reporting views.",
-    "Implemented role-based access control (RBAC) for secure access to doctor and stakeholder dashboards.",
-    "Designed reusable KPI components for approval rates, refinement rates, treatment lifecycle, and case volume analysis.",
-    "Optimized SQL queries and reporting logic to improve data accuracy, performance, and scalability.",
-    "Integrated Power BI reports for advanced analytics and executive-level reporting.",
-    "Implemented filtering, drill-down, benchmarking, and trend analysis capabilities across dashboard views.",
-  ],
+    responsibilities: [
+      "Developed interactive React dashboards for Doctor View, Target Audience View, and Timeframe View.",
+      "Built NestJS APIs to retrieve, process, and serve performance metrics from Snowflake reporting views.",
+      "Implemented role-based access control (RBAC) for secure access to doctor and stakeholder dashboards.",
+      "Designed reusable KPI components for approval rates, refinement rates, treatment lifecycle, and case volume analysis.",
+      "Optimized SQL queries and reporting logic to improve data accuracy, performance, and scalability.",
+      "Integrated Power BI reports for advanced analytics and executive-level reporting.",
+      "Implemented filtering, drill-down, benchmarking, and trend analysis capabilities across dashboard views.",
+    ],
 
-  technologies: [
-    "React",
-    "TypeScript",
-    "NestJS",
-    "SQL",
-    "Snowflake",
-    "Power BI",
-    "Azure",
-    "Azure Databricks",
-  ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "NestJS",
+      "SQL",
+      "Snowflake",
+      "Power BI",
+      "Azure",
+      "Azure Databricks",
+    ],
 
-  challenges: [
-    {
-      challenge:
-        "Standardizing KPI calculations across multiple clinical and operational datasets.",
-      solution:
-        "Designed a governed KPI framework with centralized SQL logic to ensure consistent metric calculations across all dashboard views.",
-    },
-    {
-      challenge:
-        "Optimizing large-scale reporting queries without compromising data accuracy.",
-      solution:
-        "Refactored Snowflake SQL views, optimized joins, and reduced redundant calculations to improve query performance and eliminate data inconsistencies.",
-    },
-    {
-      challenge:
-        "Presenting complex healthcare performance metrics in an intuitive interface for both clinical and sales users.",
-      solution:
-        "Developed interactive dashboards with filters, drill-down capabilities, peer benchmarking, and trend visualizations to simplify performance analysis.",
-    },
-  ],
+    challenges: [
+      {
+        challenge:
+          "Standardizing KPI calculations across multiple clinical and operational datasets.",
+        solution:
+          "Designed a governed KPI framework with centralized SQL logic to ensure consistent metric calculations across all dashboard views.",
+      },
+      {
+        challenge:
+          "Optimizing large-scale reporting queries without compromising data accuracy.",
+        solution:
+          "Refactored Snowflake SQL views, optimized joins, and reduced redundant calculations to improve query performance and eliminate data inconsistencies.",
+      },
+      {
+        challenge:
+          "Presenting complex healthcare performance metrics in an intuitive interface for both clinical and sales users.",
+        solution:
+          "Developed interactive dashboards with filters, drill-down capabilities, peer benchmarking, and trend visualizations to simplify performance analysis.",
+      },
+    ],
 
-  outcomes: [
-    "Delivered a centralized performance dashboard for monitoring Healthcare Professional (HCP) KPIs.",
-    "Enabled peer benchmarking and timeframe-based trend analysis for data-driven performance evaluation.",
-    "Improved reporting accuracy through optimized Snowflake SQL logic and standardized KPI calculations.",
-    "Provided role-based self-service analytics for doctors and internal stakeholders.",
-    "Supported proactive identification of treatment inefficiencies and performance improvement opportunities.",
-  ],
-},
+    outcomes: [
+      "Delivered a centralized performance dashboard for monitoring Healthcare Professional (HCP) KPIs.",
+      "Enabled peer benchmarking and timeframe-based trend analysis for data-driven performance evaluation.",
+      "Improved reporting accuracy through optimized Snowflake SQL logic and standardized KPI calculations.",
+      "Provided role-based self-service analytics for doctors and internal stakeholders.",
+      "Supported proactive identification of treatment inefficiencies and performance improvement opportunities.",
+    ],
+  },
 ];
 
 // Awards shown in the Awards carousel; imageUrl is imported from src/assets/awards/
@@ -432,7 +366,7 @@ export const AWARDS = [
     description:
       "Given for full ownership and contributions across the entire project lifecycle, from ideation and design to development, resulting in impactful and innovative application.",
     imageUrl: spot4,
-  } 
+  }
 ];
 
 // Skill categories rendered in the Skills section; icon must match a lucide-react name
@@ -441,73 +375,77 @@ export const SKILLS = {
     title: "Frontend",
     icon: "Monitor",
     technologies: [
-      "React",
-      "TypeScript",
       "JavaScript (ES6+)",
-      "Tailwind CSS",
-      "Ant Design",
-      "Vite",
+      "TypeScript",
+      "React",
       "Next.js",
+      "Vite",
+      "Tailwind CSS",
+      "Material UI",
+      "Ant Design",
     ],
   },
+
   backend: {
     title: "Backend",
     icon: "Server",
     technologies: [
+      "Python",
       "Node.js",
       "NestJS",
       "FastAPI",
-      "Python",
       "REST APIs",
     ],
   },
+
   data: {
     title: "Data & Analytics",
     icon: "Database",
     technologies: [
       "SQL",
-      "Snowflake",
       "PySpark",
+      "Snowflake",
       "Azure Databricks",
-      "Power BI",
       "Grafana",
-      "D3.js",
     ],
   },
+
   visualization: {
     title: "Visualization",
     icon: "BarChart",
     technologies: [
       "D3.js",
       "Chart.js",
-      "HighCharts",
+      "Highcharts",
       "Leaflet.js",
-      "Three.js",
+      "p5.js",
     ],
   },
+
   cloud: {
     title: "Cloud & DevOps",
     icon: "Cloud",
     technologies: [
       "Azure",
-      "Azure DevOps",
-      "CI/CD",
       "Docker",
-      "Kubernetes",
+      "Azure DevOps",
       "GitHub Actions",
+      "CI/CD",
+      // "Kubernetes",
     ],
   },
+
   security: {
     title: "Security",
     icon: "Shield",
     technologies: [
       "Microsoft Entra ID",
-      "RBAC",
-      "OIDC",
       "OAuth 2.0",
-      "Selenium",
+      "OIDC",
+      "RBAC",
       "SonarQube",
       "Checkmarx",
+      "Selenium",
     ],
   },
 };

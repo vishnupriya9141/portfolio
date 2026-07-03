@@ -134,7 +134,7 @@ export default function Contact() {
         </div>
 
         {/* Open to Opportunities — full-width row below */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -171,7 +171,7 @@ export default function Contact() {
                 </Button>
               </div>
             </Card>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

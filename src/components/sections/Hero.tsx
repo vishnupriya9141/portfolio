@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SITE_CONFIG } from "@/data/content";
 import { StaggerChildren, StaggerItem, FadeInUp, MagneticHover } from "@/lib/animations";
@@ -10,6 +11,7 @@ import HeroBackground from "@/components/sections/HeroBackground";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
+  const navigate = useNavigate();
   const parts = SITE_CONFIG.name.split(" ");
   const lastName = parts.pop() ?? "";
   const firstName = parts.join(" ");
@@ -74,8 +76,7 @@ export default function Hero() {
                     <Button variant="outline" size="lg" asChild>
                       <button
                         onClick={() => {
-                          sessionStorage.setItem("scrollToProjects", "true");
-                          window.location.href = "/";
+                          navigate("/", { state: { scrollToProjects: true } });
                         }}
                         className="inline-flex items-center gap-1"
                       >

@@ -33,8 +33,7 @@ export default function ProjectDetail() {
   }, [slug]);
 
   const handleBackToProjects = () => {
-    sessionStorage.setItem("scrollToProjects", "true");
-    window.location.href = "/";
+    navigate("/", { state: { scrollToProjects: true } });
   };
 
   if (!project) return <NotFound />;
