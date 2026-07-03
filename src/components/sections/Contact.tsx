@@ -6,7 +6,7 @@ import { FadeInUp } from "@/lib/animations";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Copy, Check, Briefcase } from "lucide-react";
+import { Mail, Copy, Check} from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
