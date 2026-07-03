@@ -56,7 +56,7 @@ src/
 │   │   ├── SkillsBackground.tsx # p5.js ambient orb sketch
 │   │   ├── Education.tsx     # Degree cards + cert carousel (columns=2) with count badge
 │   │   ├── Contact.tsx       # Hover-lift cards, animated copy button
-│   │   └── Mermaid.tsx       # Mermaid diagram renderer (used internally)
+│   │   └── NotFound.tsx      # 404 page
 │   └── ui/
 │       ├── Carousel.tsx # Reusable fixed-column carousel with auto arrows + dots
 │       ├── P5Canvas.tsx # p5.js instance-mode React wrapper
@@ -64,11 +64,10 @@ src/
 │       ├── card.tsx
 │       ├── dialog.tsx
 │       ├── toast.tsx / toaster.tsx / use-toast.ts
-│       └── typography.tsx
 ├── data/
 │   └── content.ts   # All site content — edit this file to update the portfolio
 ├── hooks/
-│   └── use-theme.ts
+│   └── use-theme.tsx
 ├── lib/
 │   ├── animations.tsx  # FadeIn, FadeInUp, StaggerChildren, MagneticHover, PulseGlow, ScrambleText
 │   └── utils.ts

@@ -73,6 +73,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const toggleTheme = () => {
+    // Cycle: dark → light → system → dark
     setTheme((prev) => (prev === "dark" ? "light" : prev === "light" ? "system" : "dark"));
   };
 

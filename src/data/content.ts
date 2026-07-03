@@ -3,6 +3,7 @@ import spot2 from "@/assets/awards/spot2.png";
 import spot3 from "@/assets/awards/spot3.png";
 import spot4 from "@/assets/awards/spot4.png";
 
+// Global site metadata used across Navbar, Footer, SEO meta tags, and Hero
 export const SITE_CONFIG = {
   name: "Vishnu Priya Vattikunta",
   role: "Full Stack Developer",
@@ -22,6 +23,7 @@ export const SITE_CONFIG = {
   resumeUrl: "/Vishnu_Priya_Vattikunta_Resume_0726.pdf",
 };
 
+// Navbar and footer link ordering
 export const NAVIGATION = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -33,6 +35,7 @@ export const NAVIGATION = [
   { name: "Contact", href: "#contact" },
 ];
 
+// Work history — order matters (earliest role last); drives the Experience timeline
 export const EXPERIENCE = [
   {
     id: 1,
@@ -142,6 +145,7 @@ export const EXPERIENCE = [
   },
 ];
 
+// Featured case studies — slug is used for the /projects/:slug detail route
 export const PROJECTS = [
   {
     id: 1,
@@ -393,6 +397,7 @@ export const PROJECTS = [
 },
 ];
 
+// Awards shown in the Awards carousel; imageUrl is imported from src/assets/awards/
 export const AWARDS = [
   {
     id: 1,
@@ -429,6 +434,7 @@ export const AWARDS = [
   } 
 ];
 
+// Skill categories rendered in the Skills section; icon must match a lucide-react name
 export const SKILLS = {
   frontend: {
     title: "Frontend",
@@ -505,6 +511,7 @@ export const SKILLS = {
   },
 };
 
+// Degrees and certifications displayed in the Education section
 export const EDUCATION = [
   {
     id: 1,

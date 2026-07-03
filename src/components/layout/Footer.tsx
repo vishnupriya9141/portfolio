@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
+  // Resume is an absolute route instead of a hash scroll target
   { label: "Resume", href: "/resume" },
 ];
 

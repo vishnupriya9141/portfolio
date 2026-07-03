@@ -10,6 +10,7 @@ interface CarouselProps {
   mdColumns?: number;
 }
 
+// Breakpoints: >=1024 lg, >=768 md, >=640 sm, else xs
 function useResponsiveColumns(lg: number, md?: number, sm = 1) {
   const [cols, setCols] = useState(sm);
 
@@ -71,6 +72,7 @@ export default function Carousel({
   const next = () => setIndex((i) => clamp(i + 1));
   const offset = index * (cardWidth + gap);
 
+  // Ignore pointer gestures that started on interactive elements (buttons, links, inputs)
   const isInteractiveTarget = (target: EventTarget | null) => {
     if (!target || !(target instanceof HTMLElement)) return false;
     return target.closest("button, a, [role=\"button\"], input, select, textarea");
@@ -94,6 +96,7 @@ export default function Carousel({
     const dy = e.clientY - pointerStart.current.y;
     pointerStart.current = null;
 
+    // Only trigger swipe if horizontal movement is dominant and exceeds threshold
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > cardWidth * 0.2) {
       if (dx > 0) prev();
       else next();
@@ -145,6 +148,7 @@ export default function Carousel({
         </>
       )}
 
+      {/* touchAction: pan-y preserves vertical scrolling while allowing horizontal swipe */}
       <div
         ref={viewportRef}
         className="overflow-hidden"

@@ -30,6 +30,8 @@ function CountUp({ target }: { target: string }) {
   const suffix = target.replace(/[0-9]/g, "").replace(".", "");
   const isNumeric = !isNaN(numeric) && target.replace(/[^0-9.+]/g, "").length > 0;
 
+  // Animate from 0 to the target value over 30 frames once the element enters the viewport
+  // Supports plain integers and floats; preserves any trailing suffix like "+" or "%"
   useEffect(() => {
     if (!inView || !isNumeric) return;
     let frame = 0;
@@ -58,7 +60,8 @@ export default function Awards() {
   const goPrev = () => { setDirection(-1); setLightboxIndex((i) => (i !== null ? (i - 1 + AWARDS.length) % AWARDS.length : null)); };
   const goNext = () => { setDirection(1); setLightboxIndex((i) => (i !== null ? (i + 1) % AWARDS.length : null)); };
 
-  // Keyboard navigation
+  // AnimatePresence custom={direction} is used to spin the image slide-in direction
+  // based on whether the user clicked prev (bottom-left) or next (bottom-right)
   useEffect(() => {
     if (lightboxIndex === null) return;
     const handler = (e: KeyboardEvent) => {
