@@ -5,6 +5,9 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { NAVIGATION, SITE_CONFIG } from "@/data/content";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
+import { Link } from "react-router-dom";
+
+const MotionLink = motion(Link);
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -132,14 +135,14 @@ export default function Navbar() {
             >
               LinkedIn
             </motion.a>
-            <motion.a
-              href="/resume"
+            <MotionLink
+              to="/resume"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="text-sm bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md transition-colors cursor-pointer"
             >
               Resume
-            </motion.a>
+            </MotionLink>
           </div>
 
           {/* Mobile controls */}
@@ -210,12 +213,12 @@ export default function Navbar() {
                 >
                   LinkedIn
                 </a>
-                <a
-                  href="/resume"
+                <MotionLink
+                  to="/resume"
                   className="block text-sm bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md mt-2 text-center transition-colors cursor-pointer"
                 >
                   Resume
-                </a>
+                </MotionLink>
               </div>
             </div>
           </motion.div>
