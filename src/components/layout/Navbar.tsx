@@ -126,15 +126,6 @@ export default function Navbar() {
             >
               {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </motion.button>
-            <motion.a
-              href={SITE_CONFIG.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -1 }}
-              className="text-sm text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
-            >
-              LinkedIn
-            </motion.a>
             <MotionLink
               to="/resume"
               whileHover={{ scale: 1.04 }}
@@ -205,14 +196,6 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <div className="pt-3 border-t border-border">
-                <a
-                  href={SITE_CONFIG.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-sm text-text-secondary hover:text-text-primary py-2 cursor-pointer"
-                >
-                  LinkedIn
-                </a>
                 <MotionLink
                   to="/resume"
                   className="block text-sm bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md mt-2 text-center transition-colors cursor-pointer"
