@@ -14,7 +14,20 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0);
   const mobileMenuId = "mobile-menu";
+
+  // Scroll progress for the slim top bar
+  useEffect(() => {
+    const handleScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setScrollProgress(max > 0 ? Math.min(1, h.scrollTop / max) : 0);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (href: string) => {
     setIsOpen(false);
@@ -188,25 +201,38 @@ export default function Navbar() {
                   key={item.name}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04, duration: 0.2 }}
+                  transition={{ delay: i * 0.04 + 0.05, duration: 0.3, ease: "easeOut" }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-sm text-text-secondary hover:text-text-primary py-2 cursor-pointer"
+                  className="block w-full text-left text-sm text-text-secondary hover:text-text-primary py-2.5 cursor-pointer"
                 >
                   {item.name}
                 </motion.button>
               ))}
-              <div className="pt-3 border-t border-border">
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: NAVIGATION.length * 0.04 + 0.1, duration: 0.3, ease: "easeOut" }}
+                className="pt-3 border-t border-border"
+              >
                 <MotionLink
                   to="/resume"
-                  className="block text-sm bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md mt-2 text-center transition-colors cursor-pointer"
+                  whileTap={{ scale: 0.97 }}
+                  className="block text-sm bg-accent hover:bg-accent/90 text-white px-4 py-2.5 rounded-md mt-2 text-center transition-colors cursor-pointer"
                 >
                   Resume
                 </MotionLink>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-0.5 bg-accent z-[60] origin-left"
+        style={{ scaleX: scrollProgress }}
+      />
     </motion.nav>
   );
 }

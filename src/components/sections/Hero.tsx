@@ -82,23 +82,30 @@ export default function Hero() {
                 <div className="flex flex-wrap gap-4">
                   <MagneticHover strength={0.25}>
                     <Button size="lg" asChild>
-                      <a href={SITE_CONFIG.resumeUrl} download={SITE_CONFIG.resumeFileName}>
+                      <motion.a
+                        href={SITE_CONFIG.resumeUrl}
+                        download={SITE_CONFIG.resumeFileName}
+                        whileTap={{ scale: 0.96 }}
+                        transition={{ duration: 0.15 }}
+                      >
                         <Download className="mr-2 h-4 w-4" />
                         Download Resume
-                      </a>
+                      </motion.a>
                     </Button>
                   </MagneticHover>
                   <MagneticHover strength={0.25}>
                     <Button variant="outline" size="lg" asChild>
-                      <button
+                      <motion.button
                         onClick={() => {
                           navigate("/", { state: { scrollToProjects: true } });
                         }}
+                        whileTap={{ scale: 0.96 }}
+                        transition={{ duration: 0.15 }}
                         className="inline-flex items-center gap-1"
                       >
                         View Projects
                         <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </button>
+                      </motion.button>
                     </Button>
                   </MagneticHover>
                 </div>

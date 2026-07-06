@@ -76,8 +76,9 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
+              transition={{ delay: i * 0.1, duration: 0.4, ease: "easeOut" }}
               whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.99 }}
             >
               <Card className="p-6 hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 group h-full flex flex-col">
                 <motion.div
