@@ -24,7 +24,7 @@ const CARDS = [
   {
     icon: BarChart,
     title: "Data Visualization",
-    description: "Creating compelling data stories with D3.js, Power BI, and custom visualizations that drive business decisions.",
+    description: "Creating compelling data stories with D3.js, Highcharts, and custom visualizations that drive business decisions.",
   },
   {
     icon: Shield,
